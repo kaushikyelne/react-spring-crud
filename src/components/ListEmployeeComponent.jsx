@@ -1,8 +1,21 @@
+// import axios from 'axios';
 import React,{useEffect,useState} from 'react';
+
+import getEmployees from '../services/EmployeeService'
+
+
 const ListEmployeeComponent = () => {
 
-    const [employee,seteEmployee] = useState([]);
+    const [employee,setEmployee] = useState([]);
 
+
+    useEffect(()=>{
+        getEmployees().then((response)=>{
+            
+            setEmployee(response.data);
+            
+        });
+    },[]);
     return(
 
         <React.Fragment>
@@ -20,7 +33,7 @@ const ListEmployeeComponent = () => {
                     <tbody>
                         {
                             employee.map(
-                                user =>
+                                employee =>
                                 <tr key ={employee.id}>
                                     <td>{employee.firstName}</td>
                                     <td>{employee.lastName}</td>
