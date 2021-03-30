@@ -27,7 +27,7 @@ const ListEmployeeComponent = (props) => {
         <React.Fragment>
             <h2 className="text-center">Employee List</h2>
             <div className="row">
-                <button className="btn btn-primary" onClick={addEmployee}>Add Employee</button>
+                <button className="btn btn-primary" onClick={addEmployee} style={{marginBottom:"10px"}}>Add Employee</button>
                 <span></span><br/>
                 </div>
             <div className="row">
