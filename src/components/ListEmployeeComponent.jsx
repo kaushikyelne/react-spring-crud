@@ -1,18 +1,24 @@
 // import axios from 'axios';
-import React,{useEffect,useState} from 'react';
+import React,{useCallback, useEffect,useState} from 'react';
 
 import getEmployees from '../services/EmployeeService'
 
 
-const ListEmployeeComponent = () => {
+const ListEmployeeComponent = (props) => {
 
     const [employee,setEmployee] = useState([]);
 
+    const addEmployee = useCallback(
+        () => {
+            props.history.push('/add-employee');
+        },[],
+    );
 
     useEffect(()=>{
         getEmployees().then((response)=>{
             
             setEmployee(response.data);
+
             
         });
     },[]);
@@ -20,6 +26,10 @@ const ListEmployeeComponent = () => {
 
         <React.Fragment>
             <h2 className="text-center">Employee List</h2>
+            <div className="row">
+                <button className="btn btn-primary" onClick={addEmployee}>Add Employee</button>
+                <span></span><br/>
+                </div>
             <div className="row">
                 <table className="table table-striped table-bordered">
                     <thead>

@@ -3,6 +3,7 @@ import './App.css';
 import ListEmployeeComponent from './components/ListEmployeeComponent';
 import HeaderComponent from './components/HeaderComponent'
 import FooterComponent from './components/FooterComponent'
+import CreateEmployeeComponent from './components/CreateEmployeeComponent'
 import {BrowserRouter as Router ,Route,Switch} from 'react-router-dom'
 
 
@@ -13,10 +14,11 @@ function App() {
           <HeaderComponent/>
           <div className="container">
             <Switch>
-              <Route path = "/" component={ListEmployeeComponent}></Route>
-              <Route path = "/employees" component={ListEmployeeComponent}></Route>
+              <Route path = "/"  exact component={ListEmployeeComponent}></Route>
+              <Route path = "/employees" exact component={ListEmployeeComponent}></Route>
+              <Route path = "/add-employee" exact component={CreateEmployeeComponent}></Route>
 
-              <ListEmployeeComponent/>
+              
             </Switch>
           </div>
           <FooterComponent/> 
