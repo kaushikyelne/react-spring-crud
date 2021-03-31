@@ -1,5 +1,5 @@
 import React,{useState,useEffect,useCallback} from 'react'
-import EmployeeService from '../services/EmployeeService';
+import {createEmployee} from '../services/EmployeeService';
 
 const CreateEmployeeComponent = (props) =>{
 
@@ -23,7 +23,7 @@ const CreateEmployeeComponent = (props) =>{
             e.preventDefault();
             let employee = {firstName: firstName,lastName:lastName,emailId:emailId};
             // console.log('employee =>' + JSON.stringify(employee));
-            EmployeeService.createEmployee(employee).then(res =>{
+            createEmployee(employee).then(res =>{
                 props.history.push('/employees')
             })
         }
@@ -43,10 +43,7 @@ const CreateEmployeeComponent = (props) =>{
                                         
                                         <label> First Name </label>
                                         <input placeholder="First Name" name="firstName" className="form-control"
-                                            value={firstName} onChange={(event)=>{
-                                                console.log(event.target.value)
-                                                setfirstName(event.target.value);
-                                            }}/>
+                                            value={firstName} onChange={changeFirstNameHandler}/>
                                     </div>
                                     <div className="form-group">
                                         

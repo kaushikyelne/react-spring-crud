@@ -1,24 +1,21 @@
 // import axios from 'axios';
-import React,{useCallback, useEffect,useState} from 'react';
+import React,{ useEffect,useState} from 'react';
 
-import getEmployees from '../services/EmployeeService'
+import getEmployees from '../services/EmployeeService.js'
 
 
 const ListEmployeeComponent = (props) => {
 
     const [employee,setEmployee] = useState([]);
 
-    const addEmployee = useCallback(
-        () => {
+    const addEmployee = () => {
             props.history.push('/add-employee');
-        },[],
-    );
+        };
 
     useEffect(()=>{
         getEmployees().then((response)=>{
             
             setEmployee(response.data);
-
             
         });
     },[]);
