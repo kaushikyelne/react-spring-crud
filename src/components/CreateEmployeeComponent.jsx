@@ -1,4 +1,5 @@
 import React,{useState,useEffect,useCallback} from 'react'
+import EmployeeService from '../services/EmployeeService';
 
 const CreateEmployeeComponent = (props) =>{
 
@@ -21,7 +22,10 @@ const CreateEmployeeComponent = (props) =>{
     const saveEmployee = (e) => {
             e.preventDefault();
             let employee = {firstName: firstName,lastName:lastName,emailId:emailId};
-            console.log('employee =>' + JSON.stringify(employee));
+            // console.log('employee =>' + JSON.stringify(employee));
+            EmployeeService.createEmployee(employee).then(res =>{
+                props.history.push('/employees')
+            })
         }
     const cancelEmployee = () => {
             props.history.push('/employees');
@@ -43,32 +47,23 @@ const CreateEmployeeComponent = (props) =>{
                                                 console.log(event.target.value)
                                                 setfirstName(event.target.value);
                                             }}/>
-                                        
-
                                     </div>
                                     <div className="form-group">
                                         
                                         <label> Last Name </label>
                                         <input placeholder="Last Name" name="lastName" className="form-control"
                                             value={lastName} onChange={changeLastNameHandler}/>
-                                        
-
                                     </div>
                                     <div className="form-group">
                                         
                                         <label> Email ID</label>
                                         <input placeholder="Email Id" name="emailId" className="form-control"
                                             value={emailId} onChange={changeEmailIdHandler}/>
-                                        
-
                                     </div>
                                     <button className="btn btn-success" onClick={saveEmployee}>Save</button>
                                     <button className="btn btn-danger" onClick={cancelEmployee} style={{marginLeft:"10px"}}>Cancel</button>
-                                    
-
                                 </form>
                             </div>
-                     
                     </div>
                 </div>
             </div>
