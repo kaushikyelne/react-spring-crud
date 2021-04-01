@@ -21,6 +21,10 @@ const ListEmployeeComponent = (props) => {
         setEmployees(employees.filter(employee=> employee.id !==id))}
     )}
 
+    const viewEmployee = (id) =>{
+        props.history.push(`/view-employee/${id}`);
+    }
+
     useEffect(()=>{
         getEmployees().then((response)=>{
             
@@ -57,6 +61,8 @@ const ListEmployeeComponent = (props) => {
                                     <td>
                                         <button className="btn btn-info" onClick={()=>editEmployee(employee.id)}>Update</button>
                                         <button className="btn btn-danger" style={{marginLeft:"10px"}} onClick={() =>deleteEmployees(employee.id)}>Delete</button>
+                                        <button className="btn btn-primary" style={{marginLeft:"10px"}} onClick={() =>viewEmployee(employee.id)}>View Details</button>
+
 
                                     </td>
                                 </tr>

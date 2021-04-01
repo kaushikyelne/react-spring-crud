@@ -4,6 +4,7 @@ import ListEmployeeComponent from './components/ListEmployeeComponent';
 import HeaderComponent from './components/HeaderComponent'
 import FooterComponent from './components/FooterComponent'
 import CreateEmployeeComponent from './components/CreateEmployeeComponent'
+import ViewEmployeeComponent from './components/ViewEmployeeComponent'
 import {BrowserRouter as Router ,Route,Switch} from 'react-router-dom'
 
 
@@ -17,6 +18,8 @@ function App() {
               <Route path = "/"  exact component={ListEmployeeComponent}></Route>
               <Route path = "/employees" exact component={ListEmployeeComponent}></Route>
               <Route path = "/add-employee/:id" exact component={CreateEmployeeComponent}></Route>
+              <Route path = "/view-employee/:id" exact component={ViewEmployeeComponent}></Route>
+
               {/* <Route path = "/edit-employee/:id" exact component={CreateEmployeeComponent}></Route> */}
               
             </Switch>
