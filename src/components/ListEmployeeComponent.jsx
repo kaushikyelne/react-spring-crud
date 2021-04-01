@@ -9,8 +9,11 @@ const ListEmployeeComponent = (props) => {
     const [employee,setEmployee] = useState([]);
 
     const addEmployee = () => {
-            props.history.push('/add-employee');
+            props.history.push(`/add-employee/-1`);
         };
+    const editEmployee = (id)=>{
+        props.history.push(`/add-employee/${id}`);
+    };
 
     useEffect(()=>{
         getEmployees().then((response)=>{
@@ -45,6 +48,9 @@ const ListEmployeeComponent = (props) => {
                                     <td>{employee.firstName}</td>
                                     <td>{employee.lastName}</td>
                                     <td>{employee.emailId}</td>
+                                    <td>
+                                        <button className="btn btn-info" onClick={()=>editEmployee(employee.id)}>Update</button>
+                                    </td>
                                 </tr>
                             )
                         }
