@@ -1,3 +1,21 @@
+<div>
+  <h3>List Employees Home page<h3/>
+  <br>
+  <img src ="/employeeSys.PNG" title="List Employees Home page"/>
+</div>
+
+<div style="align:center">
+  <h3>Add Employee page<h3/>
+    <br>
+  <img src ="/addEmployee.PNG" title="Add Employee page"/>
+</div>
+<div>
+  <h3>View Employee Details page<h3/>
+    <br>
+  <img src ="/viewEmployee.PNG" title="View Employee Details page"/>
+</div>
+<div>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
